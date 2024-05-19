@@ -1,4 +1,4 @@
-import { saveToken } from "../../common/config.js";
+import { saveToken, saveUserId } from "../../common/config.js";
 import { fetchLogin } from "../../api/login.js";
 
 export async function login() {
@@ -17,13 +17,14 @@ async function handleLogin(event) {
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
 
-    const response = fetchLogin(email, password);
+    const response = await fetchLogin(email, password);
 
-    if (response.ok) {
+    if (response.status === 200) {
         const data = await response.json();
         saveToken(data.token);
-        window.location.href = '#/home';
+        saveUserId(data.userId);
+        window.location.href = '#/';
     } else {
-        console.error('Login fallido');
+        alert('Login fallido');
     }
 }

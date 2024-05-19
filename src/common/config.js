@@ -1,6 +1,16 @@
 //url para peticiones al backend
 const apiUrl = 'http://localhost:8080';
 
+// Guardar el userId en localStorage
+function saveUserId(userId) {
+    localStorage.setItem('userId', userId);
+}
+
+// Recuperar el token de localStorage
+function getUserId() {
+    return localStorage.getItem('userId');
+}
+
 // Guardar el token en localStorage
 function saveToken(token) {
     localStorage.setItem('token', token);
@@ -16,4 +26,4 @@ function removeToken() {
     localStorage.removeItem('token');
 }
 
-export { apiUrl, saveToken, getToken, removeToken };
+export { apiUrl, saveUserId, getUserId, saveToken, getToken, removeToken };

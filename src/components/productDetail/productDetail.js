@@ -1,4 +1,4 @@
-import { fetchProduct } from '../api/products.js';
+import { fetchProduct } from '../../api/products.js';
 
 export async function productDetail(params) {
     const app = document.getElementById('app');

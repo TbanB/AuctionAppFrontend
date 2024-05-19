@@ -1,3 +1,5 @@
+import { fetchRegister } from '../../api/register.js';
+
 export async function register() {
     const app = document.getElementById('app');
 
@@ -12,7 +14,7 @@ export async function register() {
     });
 }
 
-function validateForm() {
+async function validateForm() {
     const errorMessages = [];
     const name = document.getElementById('name').value.trim();
     const surname = document.getElementById('surname').value.trim();
@@ -60,8 +62,14 @@ function validateForm() {
             errorContainer.appendChild(errorElement);
         });
     } else {
-        // Aquí iría la lógica para enviar el formulario al servidor
-        console.log('Formulario enviado:', { name, surname, email, password, birthday, address, country, description, isStore });
+        const newUserData = { name, surname, birthday, address, country, description, isStore, loginDetails: { email, password } };
+        const response = await fetchRegister(newUserData);
+        console.log('response:', response);
+        console.log('Formulario enviado:', newUserData);
+        if (response === 201) {
+            window.location.href = '#/login';
+            alert("Su usuario a sido creado");
+        }
     }
 }
 
