@@ -4,9 +4,9 @@ export async function register() {
     const app = document.getElementById('app');
 
     const response = await fetch('src/components/register/register.html');
-    const loginHtml = await response.text();
+    const registerHtml = await response.text();
 
-    app.innerHTML = loginHtml;
+    app.innerHTML = registerHtml;
     
     document.getElementById('registerForm').addEventListener('submit', (e) => {
         e.preventDefault();

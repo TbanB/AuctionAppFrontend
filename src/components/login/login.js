@@ -24,6 +24,7 @@ async function handleLogin(event) {
         saveToken(data.token);
         saveUserId(data.userId);
         window.location.href = '#/';
+        window.location.reload(true);
     } else {
         alert('Login fallido');
     }

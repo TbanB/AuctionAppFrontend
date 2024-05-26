@@ -1,7 +1,6 @@
 import { home } from "./components/home/home.js";
 import { login } from "./components/login/login.js";
 import { register } from "./components/register/register.js";
-import { productDetail } from "./components/productDetail/productDetail.js";
 import { profile } from "./components/profile/profile.js";
 import { categories } from "./components/categories/categories.js";
 import { activeAuctions } from "./components/activeAuctions/activeAuctions.js";
@@ -11,7 +10,6 @@ const routes = {
   "/login": login,
   "/register": register,
   "/profile": profile,
-  "/product/:id": productDetail,
   "/categories": categories,
   "/activeAuctions": activeAuctions
 };

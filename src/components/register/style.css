@@ -8,6 +8,12 @@
     flex-wrap: nowrap;
 }
 
+.btn-profile-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
 form {
     background-color: #fff;
     padding: 20px;
@@ -42,18 +48,4 @@ form {
 
 .form-check input {
     margin-right: 10px;
-}
-
-.btn {
-    width: 100%;
-    padding: 10px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.btn:hover {
-    background-color: #0056b3;
 }

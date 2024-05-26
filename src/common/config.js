@@ -6,6 +6,11 @@ function saveUserId(userId) {
     localStorage.setItem('userId', userId);
 }
 
+// Eliminar el userId de localStorage
+function removeUserId() {
+    localStorage.removeItem('userId');
+}
+
 // Recuperar el token de localStorage
 function getUserId() {
     return localStorage.getItem('userId');
@@ -26,4 +31,4 @@ function removeToken() {
     localStorage.removeItem('token');
 }
 
-export { apiUrl, saveUserId, getUserId, saveToken, getToken, removeToken };
+export { apiUrl, saveUserId, getUserId, removeUserId, saveToken, getToken, removeToken };

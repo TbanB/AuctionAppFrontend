@@ -10,4 +10,14 @@ async function fetchLogin(email, password) {
     return response;
 }
 
-export { fetchLogin };
+async function fetchCloseSession(idUser) {
+    const response = await fetch(`${apiUrl}/AuctionAppBackend/login/${idUser}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password }),
+    });
+
+    return response;
+}
+
+export { fetchLogin, fetchCloseSession };

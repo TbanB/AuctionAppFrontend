@@ -1,3 +1,45 @@
-<div class="container">
+<div class="form-container">
     <h1>Perfil de Usuario</h1>
+    <form id="userForm">
+        <input type="hidden" id="idUser" name="idUser">
+        <div class="form-group">
+            <label for="name">Nombre:</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+            <label for="surname">Apellido:</label>
+            <input type="text" id="surname" name="surname" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+            <label for="birthday">Fecha de Nacimiento:</label>
+            <input type="date" id="birthday" name="birthday" required>
+        </div>
+        <div class="form-group">
+            <label for="address">Dirección:</label>
+            <input type="text" id="address" name="address" required>
+        </div>
+        <div class="form-group">
+            <label for="country">País:</label>
+            <input type="text" id="country" name="country" required>
+        </div>
+        <div class="form-group">
+            <label for="description">Descripción:</label>
+            <textarea id="description" name="description"></textarea>
+        </div>
+        <div class="form-group form-check">
+            <label class="switch">
+                <input type="checkbox" id="isStore" name="isStore">
+                <span class="slider round"></span>
+            </label>
+            <label for="isStore">¿Eres una tienda?</label>
+        </div>
+        <div class="btn-profile-container">
+            <button id="closeSession" class="secondary-btn close">Cerrar sesión</button>
+            <button id="editUser" class="btn">Guardar</button>
+        </div>
+    </form>
 </div>
