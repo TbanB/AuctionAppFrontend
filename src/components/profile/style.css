@@ -6,6 +6,11 @@
     width: 100%;
 }
 
+.delete-container {
+    width: 100%;
+    margin: 20px 20px 0 20px;
+}
+
 .form-group {
     margin-bottom: 15px;
 }
@@ -68,15 +73,25 @@
     border-radius: 50%;
 }
 
-input:checked + .slider {
+input:checked+.slider {
     background-color: #007bff;
 }
 
-input:checked + .slider:before {
+input:checked+.slider:before {
     transform: translateX(14px);
 }
 
 .close:hover {
-    background-color: darkred;
-    color: white
+    background-color: rgb(220, 220, 220);
+    color: rgb(0, 0, 0)
+}
+
+.close:hover {
+    background-color: rgb(220, 220, 220);
+    color: rgb(0, 0, 0)
+}
+
+#deleteUser:hover {
+    background-color: rgb(171, 0, 0);
+    color: rgb(230, 230, 230)
 }

@@ -17,4 +17,12 @@ async function fetchUpdateUser(userId, data) {
     return response;
 }
 
-export { fetchGetUser, fetchUpdateUser };
+async function fetchDeleteUser(userId) {
+    const response = await fetch(`${apiUrl}/AuctionAppBackend/users/${userId}`, {
+        method: 'DELETE',
+        headers: { 'Authorization': `Bearer ${getToken()}` }
+    });
+    return response;
+}
+
+export { fetchGetUser, fetchUpdateUser, fetchDeleteUser };

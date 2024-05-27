@@ -1,4 +1,4 @@
-import { fetchGetUser, fetchUpdateUser } from '../../api/profile.js';
+import { fetchGetUser, fetchUpdateUser, fetchDeleteUser } from '../../api/profile.js';
 import { fetchCloseSession } from '../../api/login.js';
 import { getUserId, removeToken, removeUserId } from '../../common/config.js';
 import { convertDate } from '../../common/utils.js';
@@ -36,6 +36,11 @@ export async function profile() {
         e.preventDefault();
         handleClose();
     });
+
+    document.getElementById('deleteUser').addEventListener('click', (e) => {
+        e.preventDefault();
+        handleDelete();
+    });
 }
 
 async function handleUpdate(data) {
@@ -54,15 +59,30 @@ async function handleUpdate(data) {
     const response = await fetchUpdateUser(idUser, editedData);
     console.log('response:', response);
     console.log('Formulario enviado:', editedData);
-    if (response === 201) {
+    if (response.status === 200) {
         alert("Se ha actualizado los datos del usuario");
     }
 }
 
 async function handleClose() {
     fetchCloseSession(getUserId());
-    removeUserId();
-    removeToken();
+    removeUserCredentials();
     window.location.href = '#/';
     window.location.reload(true);
+}
+
+async function handleDelete() {
+    const response = await fetchDeleteUser(getUserId());
+    debugger;
+    if (response.status === 200) {
+        removeUserCredentials();
+        alert("Se ha eliminado el usuario");
+        window.location.href = '#/';
+        window.location.reload(true);
+    }
+}
+
+function removeUserCredentials() {
+    removeUserId();
+    removeToken();
 }
