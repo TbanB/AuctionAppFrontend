@@ -1,5 +1,6 @@
 @import url(./src/common/navbar/navbar.css);
 @import url(./src/common/auctionCard/style.css);
+@import url(./src/components/home/style.css);
 @import url(./src/components/login/style.css);
 @import url(./src/components/profile/style.css);
 @import url(./src/components/register/style.css);
@@ -24,8 +25,9 @@ header {
 }
 
 .container {
-    max-width: 1200px;
+    max-width: 100%;
     margin: 0 auto;
+    padding: 20px;
 }
 
 .card {
