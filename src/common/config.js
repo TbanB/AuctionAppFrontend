@@ -1,5 +1,5 @@
 //url para peticiones al backend
-const apiUrl = 'http://localhost:8080';
+const apiUrl = 'http://localhost:8080/AuctionAppBackend';
 
 // Guardar el userId en localStorage
 function saveUserId(userId) {

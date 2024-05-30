@@ -1,0 +1,49 @@
+.auction-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    max-width: 400px;
+    margin: 20px;
+    transition: transform 0.3s ease;
+}
+
+.auction-card:hover {
+    transform: translateY(-10px);
+}
+
+.product-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.product-info, .auction-info {
+    padding: 20px;
+}
+
+.product-info h3 {
+    margin: 0;
+    font-size: 1.5em;
+    color: #333333;
+}
+
+.product-info p {
+    margin: 10px 0;
+    font-size: 1em;
+    color: #666666;
+}
+
+.auction-info p {
+    margin: 10px 0;
+    font-size: 0.9em;
+    color: #999999;
+}
+
+.initial-value, .goal-value, .final-value, .start-time, .end-time, .is-active {
+    font-weight: bold;
+}
+
+.is-active {
+    color: #28a745;
+}

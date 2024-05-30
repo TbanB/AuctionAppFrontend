@@ -8,8 +8,6 @@ export async function profile() {
     const userResponse = await fetchGetUser(getUserId());
     const data = await userResponse.json();
 
-    console.log('1.', data);
-
     const response = await fetch('src/components/profile/profile.html');
     const profileHtml = await response.text();
 

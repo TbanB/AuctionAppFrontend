@@ -1,7 +1,7 @@
 import { apiUrl } from "../common/config.js";
 
 async function fetchLogin(email, password) {
-    const response = await fetch(`${apiUrl}/AuctionAppBackend/login`, {
+    const response = await fetch(`${apiUrl}/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password }),
@@ -11,7 +11,7 @@ async function fetchLogin(email, password) {
 }
 
 async function fetchCloseSession(idUser) {
-    const response = await fetch(`${apiUrl}/AuctionAppBackend/login/${idUser}`, {
+    const response = await fetch(`${apiUrl}/login/${idUser}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password }),

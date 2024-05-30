@@ -1,4 +1,5 @@
-import { fetchProducts } from '../../api/products.js';
+import { fetchAuctions } from '../../api/auction.js';
+import { createAuctionCard } from '../../common/auctionCard/auctionCard.js';
 
 export async function home() {
     const app = document.getElementById('app');
@@ -7,4 +8,17 @@ export async function home() {
     const homeHtml = await response.text();
 
     app.innerHTML = homeHtml;
+
+    const container = document.getElementById('auction-container');
+    container.innerHTML = '';
+
+    const auctionResponse = await fetchAuctions();
+    const data = await auctionResponse.json();
+
+    console.log('Auctions: ', data);
+
+    for (const auction of data) {
+        const card = await createAuctionCard(auction);
+        container.appendChild(card);
+    }
 }
