@@ -4,7 +4,26 @@
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     max-width: 390px;
-    margin: 0 15px 15px 0;
+    margin: 0 15px 25px 0;
+}
+
+.product-category {
+    height: 20px;
+    width: fit-content;
+    background-color: cornflowerblue;
+    color: white;
+    padding: 5px 15px;
+    margin: 5px 0;
+    border-radius: 3px;
+}
+
+.card-btn {
+    width: 90%;
+    margin: 20px;
+}
+
+.card-btn:hover {
+    background-color: #e3e3e3;
 }
 
 .product-image {
@@ -13,32 +32,47 @@
     object-fit: cover;
 }
 
-.product-info, .auction-info {
-    padding: 20px;
+.description-container {
+    position: relative;
+    max-height: 120px; /* Ajusta según necesites */
+    overflow: hidden;
+    margin: 0 0 10px 0;
 }
 
-.product-info h3 {
-    margin: 0;
-    font-size: 1.5em;
-    color: #333333;
-}
-
-.product-info p {
-    margin: 10px 0;
+.product-description {
     font-size: 1em;
-    color: #666666;
+    line-height: 1.3;
 }
 
-.auction-info p {
-    margin: 10px 0;
-    font-size: 0.9em;
-    color: #999999;
+.description-container::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 50px; /* Ajusta según necesites */
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
 }
 
-.initial-value, .goal-value, .final-value, .start-time, .end-time, .is-active {
-    font-weight: bold;
+.product-info,
+.auction-info {
+    padding: 0 20px;
 }
 
-.is-active {
-    color: #28a745;
+.value-container {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.info-section {
+    display: flex;
+    flex-direction: column;
+    margin: 0 0 10px 0;
+}
+
+.value-label {
+    color: slategray;
+    font-size: 12px;
 }

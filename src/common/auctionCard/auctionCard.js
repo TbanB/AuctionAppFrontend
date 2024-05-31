@@ -6,18 +6,16 @@ export async function createAuctionCard(auction) {
 
     const card = template.content.firstChild;
 
-    console.log('card', card);
     card.querySelector('.product-name').textContent = auction.product.prodName;
-    card.querySelector('.product-category').textContent = `Category: ${auction.product.catName}`;
+    card.querySelector('.product-category').textContent = auction.product.catName;
     card.querySelector('.product-description').textContent = auction.product.prodDescription;
-    card.querySelector('.product-year').textContent = `Year: ${auction.product.year}`;
+    card.querySelector('.product-year').textContent = `${auction.product.year}`;
 
-    card.querySelector('.initial-value').textContent = `Initial Value: $${auction.initialValue}`;
-    card.querySelector('.goal-value').textContent = `Goal Value: $${auction.goalValue}`;
-    card.querySelector('.final-value').textContent = `Final Value: $${auction.finalValue}`;
-    card.querySelector('.start-time').textContent = `Start Time: ${auction.startTime}`;
-    card.querySelector('.end-time').textContent = `End Time: ${auction.endTime}`;
-    card.querySelector('.is-active').textContent = auction.isActive ? 'Active' : 'Inactive';
+    card.querySelector('.initial-value').textContent = `€${auction.initialValue}`;
+    card.querySelector('.goal-value').textContent = `€${auction.goalValue}`;
+    card.querySelector('.final-value').textContent = `€${auction.finalValue}`;
+    card.querySelector('.start-time').textContent = auction.startTime;
+    card.querySelector('.end-time').textContent = auction.endTime;
 
     return card;
 }
