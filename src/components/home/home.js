@@ -15,8 +15,6 @@ export async function home() {
     const auctionResponse = await fetchAuctions();
     const data = await auctionResponse.json();
 
-    console.log('Auctions: ', data);
-
     for (const auction of data) {
         const card = await createAuctionCard(auction);
         container.appendChild(card);

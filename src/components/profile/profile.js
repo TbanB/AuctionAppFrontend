@@ -53,10 +53,8 @@ async function handleUpdate(data) {
     const loginDetails = data.loginDetails;
 
     const editedData = { name, surname, birthday, address, country, description, isStore, loginDetails };
-    console.log(editedData);
     const response = await fetchUpdateUser(idUser, editedData);
-    console.log('response:', response);
-    console.log('Formulario enviado:', editedData);
+
     if (response.status === 200) {
         alert("Se ha actualizado los datos del usuario");
     }

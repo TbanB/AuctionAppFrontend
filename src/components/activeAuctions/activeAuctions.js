@@ -1,3 +1,6 @@
+import { fetchActiveAuctions } from '../../api/auction.js';
+import { createAuctionCard } from '../../common/auctionCard/auctionCard.js';
+
 export async function activeAuctions() {
     const app = document.getElementById('app');
 
@@ -5,4 +8,15 @@ export async function activeAuctions() {
     const activeAuctionsHtml = await response.text();
 
     app.innerHTML = activeAuctionsHtml;
+
+    const container = document.getElementById('auction-container');
+    container.innerHTML = '';
+
+    const auctionResponse = await fetchActiveAuctions();
+    const data = await auctionResponse.json();
+
+    for (const auction of data) {
+        const card = await createAuctionCard(auction);
+        container.appendChild(card);
+    }
 }

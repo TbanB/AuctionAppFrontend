@@ -64,8 +64,7 @@ async function validateForm() {
     } else {
         const newUserData = { name, surname, birthday, address, country, description, isStore, loginDetails: { email, password } };
         const response = await fetchRegister(newUserData);
-        console.log('response:', response);
-        console.log('Formulario enviado:', newUserData);
+
         if (response === 201) {
             window.location.href = '#/login';
             alert("Su usuario a sido creado");

@@ -14,5 +14,14 @@
     flex-wrap: wrap;
     justify-content: flex-start;
     align-items: flex-start;
-    padding: 0 40px;
+}
+
+@media (max-width: 1250px) {
+    #auction-container {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
 }

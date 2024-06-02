@@ -1,0 +1,19 @@
+#category-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    background-color: white;
+    border: 0.5px solid #ddd;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+#filtered-auctions {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 20px 0 0 0;
+}
