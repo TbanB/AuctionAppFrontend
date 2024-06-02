@@ -1,4 +1,5 @@
 import { categoryImage } from "../resources.js";
+
 export async function createCategoryCard(category) {
     const response = await fetch('src/common/categoryCard/categoryCard.html');
     const html = await response.text();

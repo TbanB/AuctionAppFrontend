@@ -1,3 +1,5 @@
+import { productImage } from "../resources.js";
+
 export async function createAuctionCard(auction) {
     const response = await fetch('src/common/auctionCard/auctionCard.html');
     const html = await response.text();
@@ -6,6 +8,7 @@ export async function createAuctionCard(auction) {
 
     const card = template.content.firstChild;
 
+    card.querySelector('.product-image').src = productImage(auction.product.catName);
     card.querySelector('.product-name').textContent = auction.product.prodName;
     card.querySelector('.product-category').textContent = auction.product.catName;
     card.querySelector('.active-auction').style.display = auction.isActive ? 'block' : 'none';

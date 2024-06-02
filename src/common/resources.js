@@ -14,4 +14,20 @@ function categoryImage(name) {
     return categories[name];
 }
 
-export { categoryImage };
+function productImage(name) {
+    const product = {
+        Electronica: "https://www.apple.com/v/iphone/home/bu/images/meta/iphone__ky2k6x5u6vue_og.png",
+        Moda: "https://hips.hearstapps.com/hmg-prod/images/may-berthelot-wears-high-waist-white-latte-palazzo-flared-news-photo-1677070543.jpg",
+        Hogar: "https://www.mueblesvalencia.es/8772-large_default/sillon-moderno-modelo-1-tienda-muebles-madrid.jpg",
+        Deportes: "https://www.dragonsports.eu/382091-verylarge_default/guantes-formacion-fxv6-cuero-fairtex.jpg",
+        Belleza: "https://previews.123rf.com/images/loonara/loonara1607/loonara160700012/60728838-maquillaje-profesional-pinceles-y-herramientas-de-recolecci%C3%B3n-maquillaje-productos-que-figuran-en.jpg",
+        Juguetes: "https://cdn.yugen-collectibles.com/27707-large_default/dc-comics-art-scale-110-figura-batman-unleashed-deluxe.jpg",
+        Libros: "https://www.readandcobooks.co.uk/wp-content/uploads/H-P-Lovecraft-A-Cosmic-Horror-Collection_BLOG_850x445.jpg",
+        Automóviles: "https://cdn.autobild.es/sites/navi.axelspringer.es/public/media/image/2019/06/ford-mustang-clasico-electrico.jpg?tf=3840x",
+        Coleccionables: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Estampillas_centenario.jpg/1200px-Estampillas_centenario.jpg",
+        Arte: "https://i0.wp.com/revistaestilo.org/wp-content/uploads/2021/12/Starry_Night_Over_the_Rhone_detalle_Van-Gogh.jpg?resize=1600%2C813&ssl=1"
+    };
+    return product[name];
+}
+
+export { categoryImage, productImage };
