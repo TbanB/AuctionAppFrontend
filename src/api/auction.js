@@ -28,4 +28,11 @@ async function fetchActiveAuctions() {
     return response;
 }
 
-export { fetchAuction, fetchCategoryAuctions, fetchAuctions, fetchActiveAuctions };
+async function fetchUserAuctions(userId) {
+    const response = await fetch(`${apiUrl}/auctions/user/${userId}`, {
+        method: 'GET'
+    });
+    return response;
+}
+
+export { fetchAuction, fetchCategoryAuctions, fetchAuctions, fetchActiveAuctions, fetchUserAuctions };

@@ -25,4 +25,12 @@ async function fetchDeleteUser(userId) {
     return response;
 }
 
-export { fetchGetUser, fetchUpdateUser, fetchDeleteUser };
+async function fetchUsers() {
+    const response = await fetch(`${apiUrl}/users/`, {
+        method: 'GET',
+        headers: { 'Authorization': `Bearer ${getToken()}` }
+    });
+    return response;
+}
+
+export { fetchGetUser, fetchUpdateUser, fetchDeleteUser, fetchUsers };

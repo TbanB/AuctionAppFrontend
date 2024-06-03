@@ -1,11 +1,14 @@
 import { fetchGetUser, fetchUpdateUser, fetchDeleteUser } from '../../api/profile.js';
+import { fetchUserAuctions } from '../../api/auction.js';
 import { fetchCloseSession } from '../../api/login.js';
 import { getUserId, removeToken, removeUserId } from '../../common/config.js';
 import { convertDate } from '../../common/utils.js';
 
 export async function profile() {
-    const app = document.getElementById('app');
-    const userResponse = await fetchGetUser(getUserId());
+    const app = document.getElementById('app');    
+    const url = new URL(window.location.href);
+    const id = url.searchParams.get('id') ? url.searchParams.get('id') : getUserId();
+    const userResponse = await fetchGetUser(id);
     const data = await userResponse.json();
 
     const response = await fetch('src/components/profile/profile.html');
@@ -39,6 +42,17 @@ export async function profile() {
         e.preventDefault();
         handleDelete();
     });
+
+    const container = document.getElementById('auction-container');
+    container.innerHTML = '';
+
+    const auctionResponse = await fetchUserAuctions(id);
+    const auctionsData = await auctionResponse.json();
+
+    for (const auction of auctionsData) {
+        const card = await createAuctionCard(auction);
+        container.appendChild(card);
+    }
 }
 
 async function handleUpdate(data) {

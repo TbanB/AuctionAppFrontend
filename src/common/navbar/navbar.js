@@ -19,6 +19,7 @@ export function navbar() {
                       <ul class="navbar-links">
                           <li><a href="#/activeAuctions">Subastas activas</a></li>
                           <li><a href="#/categories">Categorías</a></li>
+                          <li><a href="#/users">Usuarios</a></li>
                       </ul>
                       <div class="navbar-logo">
                           <a href="${profileLink}">
