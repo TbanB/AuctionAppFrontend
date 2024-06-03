@@ -1,7 +1,7 @@
 export function navbar() {
     const token = localStorage.getItem('token');
     const profileLink = token ? '#/profile' : '#/login';
-  
+
     document.body.insertAdjacentHTML(
       "afterbegin",
       `
@@ -19,7 +19,7 @@ export function navbar() {
                       <ul class="navbar-links">
                           <li><a href="#/activeAuctions">Subastas activas</a></li>
                           <li><a href="#/categories">Categorías</a></li>
-                          <li><a href="#/users">Usuarios</a></li>
+                          <li><a href="#/users" class="${token ? '' : 'disabled-link'}">Usuarios</a></li>
                       </ul>
                       <div class="navbar-logo">
                           <a href="${profileLink}">
@@ -32,4 +32,9 @@ export function navbar() {
               </header>
           `
     );
-  }
+
+    if (!token) {
+        const usersLink = document.querySelector('.navbar-links .disabled-link');
+        usersLink.setAttribute('disabled', 'true');
+    }
+}

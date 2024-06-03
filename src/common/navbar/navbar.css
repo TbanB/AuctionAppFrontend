@@ -4,6 +4,7 @@
     align-items: center;
     padding: 0 20px;
     width: 100%;
+    background-color: #343a40;
 }
 
 .navbar-logo a {
@@ -57,4 +58,10 @@
 
 .navbar-search button:hover {
     background-color: #0056b3;
+}
+
+.disabled-link {
+    color: #6c757d !important;
+    pointer-events: none;
+    cursor: default;
 }
