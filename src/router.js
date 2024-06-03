@@ -30,17 +30,27 @@ function loadRoute() {
 }
 
 function matchRoute(path) {
+  const [pathWithoutQuery, queryString] = path.split('?');
+
   for (const route in routes) {
     const regex = new RegExp(`^${route.replace(/:\w+/g, "\\w+")}$`);
-    if (regex.test(path)) {
+    if (regex.test(pathWithoutQuery)) {
       return () => {
         const paramNames = (route.match(/:\w+/g) || []).map((param) =>
           param.slice(1)
         );
-        const paramValues = (path.match(regex) || []).slice(1);
+        const paramValues = (pathWithoutQuery.match(regex) || []).slice(1);
         const params = Object.fromEntries(
           paramNames.map((_, i) => [paramNames[i], paramValues[i]])
         );
+
+        if (queryString) {
+          const queryParams = new URLSearchParams(queryString);
+          queryParams.forEach((value, key) => {
+            params[key] = value;
+          });
+        }
+
         routes[route](params);
       };
     }

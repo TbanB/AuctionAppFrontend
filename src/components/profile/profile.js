@@ -3,12 +3,16 @@ import { fetchUserAuctions } from '../../api/auction.js';
 import { fetchCloseSession } from '../../api/login.js';
 import { getUserId, removeToken, removeUserId } from '../../common/config.js';
 import { convertDate } from '../../common/utils.js';
+import { createAuctionCard } from '../../common/auctionCard/auctionCard.js'
 
 export async function profile() {
-    const app = document.getElementById('app');    
-    const url = new URL(window.location.href);
-    const id = url.searchParams.get('id') ? url.searchParams.get('id') : getUserId();
-    const userResponse = await fetchGetUser(id);
+    const app = document.getElementById('app');
+    
+    const hash = window.location.hash;
+    const queryParams = new URLSearchParams(hash.split('?')[1]);
+    const userId = getUserId();
+    const paramId = queryParams.get('id');
+    const userResponse = await fetchGetUser(paramId || userId);
     const data = await userResponse.json();
 
     const response = await fetch('src/components/profile/profile.html');
@@ -28,6 +32,15 @@ export async function profile() {
     form.description.value = data.description;
     form.isStore.checked = data.isStore;
 
+    if (paramId && paramId != userId) {
+        // Deshabilitar todos los elementos del formulario
+        Array.from(form.elements).forEach(element => element.disabled = true);
+        // Ocultar botones
+        document.getElementById('editUser').style.display = 'none';
+        document.getElementById('closeSession').style.display = 'none';
+        document.getElementById('deleteUser').style.display = 'none';
+    }
+
     document.getElementById('editUser').addEventListener('click', (e) => {
         e.preventDefault();
         handleUpdate(data);
@@ -43,10 +56,10 @@ export async function profile() {
         handleDelete();
     });
 
-    const container = document.getElementById('auction-container');
+    const container = document.getElementById('profile-auction-container');
     container.innerHTML = '';
 
-    const auctionResponse = await fetchUserAuctions(id);
+    const auctionResponse = await fetchUserAuctions(paramId || userId);
     const auctionsData = await auctionResponse.json();
 
     for (const auction of auctionsData) {
@@ -83,7 +96,6 @@ async function handleClose() {
 
 async function handleDelete() {
     const response = await fetchDeleteUser(getUserId());
-    debugger;
     if (response.status === 200) {
         removeUserCredentials();
         alert("Se ha eliminado el usuario");

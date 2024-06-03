@@ -1,10 +1,12 @@
 @import url(./src/common/navbar/navbar.css);
+@import url(./src/common/userCard/userCard.css);
 @import url(./src/common/categoryCard/categoryCard.css);
 @import url(./src/common/auctionCard/auctionCard.css);
 @import url(./src/components/home/home.css);
 @import url(./src/components/activeAuctions/activeAuctions.css);
 @import url(./src/components/login/login.css);
 @import url(./src/components/profile/profile.css);
+@import url(./src/components/users/users.css);
 @import url(./src/components/register/register.css);
 @import url(./src/components/categories/categories.css);
 

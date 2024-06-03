@@ -1,4 +1,5 @@
 import { fetchUsers } from '../../api/profile.js';
+import { createUserCard } from '../../common/userCard/userCard.js'
 
 export async function users() {
     const app = document.getElementById('app');
@@ -8,18 +9,14 @@ export async function users() {
 
     app.innerHTML = usersHtml;
 
-    const usersResponse = await fetchUsers();
-    const usersData = await usersResponse.json();
-    console.log(usersData);
-
-    const container = document.getElementById('auction-container');
+    const container = document.getElementById('users-container');
     container.innerHTML = '';
 
-    const auctionResponse = await fetchAuctions();
-    const auctionsData = await auctionResponse.json();
+    const usersResponse = await fetchUsers();
+    const usersData = await usersResponse.json();
 
-    for (const auction of auctionsData) {
-        const card = await createAuctionCard(auction);
+    for (const user of usersData) {
+        const card = await createUserCard(user);
         container.appendChild(card);
     }
 }
