@@ -75,7 +75,14 @@ async function handleUpdate(data) {
     const isStore = document.getElementById('isStore').checked;
     const loginDetails = data.loginDetails;
 
-    const editedData = { name, surname, birthday, address, country, description, isStore, loginDetails };
+    if (!birthday) {
+        alert("Por favor, introduce una fecha de nacimiento válida.");
+        return;
+    }
+
+    const formattedBirthday = new Date(birthday).toISOString().split('T')[0];
+
+    const editedData = { name, surname, birthday: formattedBirthday, address, country, description, isStore, loginDetails };
     const response = await fetchUpdateUser(idUser, editedData);
 
     if (response.status === 200) {
