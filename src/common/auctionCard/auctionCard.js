@@ -7,8 +7,9 @@ export async function createAuctionCard(auction) {
     template.innerHTML = html.trim();
 
     const card = template.content.firstChild;
+    const auctionImg = productImage(auction.product.catName);
 
-    card.querySelector('.product-image').src = productImage(auction.product.catName);
+    card.querySelector('.product-image').src = auctionImg;
     card.querySelector('.product-name').textContent = auction.product.prodName;
     card.querySelector('.product-category').textContent = auction.product.catName;
     card.querySelector('.active-auction').style.display = auction.isActive ? 'block' : 'none';
@@ -20,6 +21,13 @@ export async function createAuctionCard(auction) {
     card.querySelector('.final-value').textContent = `€${auction.finalValue ? auction.finalValue : ' --'}`;
     card.querySelector('.start-time').textContent = auction.startTime;
     card.querySelector('.end-time').textContent = auction.endTime;
+
+    card.querySelector('#details').addEventListener('click', () => {
+        const baseUrl = `#/auctionDetail`;
+        const auctionString = JSON.stringify({...auction, img: auctionImg});
+        const params = new URLSearchParams({ params: auctionString });
+        window.location.href = `${baseUrl}?${params.toString()}`;
+    });
 
     return card;
 }

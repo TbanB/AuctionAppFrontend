@@ -4,6 +4,7 @@ import { register } from "./components/register/register.js";
 import { profile } from "./components/profile/profile.js";
 import { categories } from "./components/categories/categories.js";
 import { users } from "./components/users/users.js";
+import { auctionDetail } from "./components/auctionDetail/auctionDetail.js";
 import { activeAuctions } from "./components/activeAuctions/activeAuctions.js";
 
 const routes = {
@@ -13,6 +14,7 @@ const routes = {
   "/profile": profile,
   "/categories": categories,
   "/users": users,
+  "/auctionDetail": auctionDetail,
   "/activeAuctions": activeAuctions
 };
 

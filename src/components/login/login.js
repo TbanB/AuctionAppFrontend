@@ -1,4 +1,4 @@
-import { saveToken, saveUserId } from "../../common/config.js";
+import { saveToken, saveUserId, saveUserRole } from "../../common/config.js";
 import { fetchLogin } from "../../api/login.js";
 
 export async function login() {
@@ -23,6 +23,7 @@ async function handleLogin(event) {
         const data = await response.json();
         saveToken(data.token);
         saveUserId(data.userId);
+        saveUserRole(data.role);
         window.location.href = '#/';
         window.location.reload(true);
     } else {

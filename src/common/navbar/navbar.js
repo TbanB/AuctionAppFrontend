@@ -1,6 +1,9 @@
+import { getUserRole } from '../../common/config.js';
+
 export function navbar() {
     const token = localStorage.getItem('token');
     const profileLink = token ? '#/profile' : '#/login';
+    const isAdmin = getUserRole() === 'Admin';
 
     document.body.insertAdjacentHTML(
       "afterbegin",
@@ -23,8 +26,8 @@ export function navbar() {
                       </ul>
                       <div class="navbar-logo">
                           <a href="${profileLink}">
-                              <span class="material-symbols-outlined">
-                                  person
+                              <span class="material-symbols-outlined ${isAdmin ? 'admin-btn': ''}">
+                                  ${isAdmin ? 'shield_person' : 'person'}
                               </span>
                           </a>
                       </div>

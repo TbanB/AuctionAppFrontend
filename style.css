@@ -7,6 +7,7 @@
 @import url(./src/components/login/login.css);
 @import url(./src/components/profile/profile.css);
 @import url(./src/components/users/users.css);
+@import url(./src/components/auctionDetail/auctionDetail.css);
 @import url(./src/components/register/register.css);
 @import url(./src/components/categories/categories.css);
 
@@ -72,4 +73,28 @@ header {
     padding: 10px 20px;
     cursor: pointer;
     border-radius: 5px;
+}
+
+.admin-btn {
+    color: gold;
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    padding: 5px 10px;
+}
+
+.nav-link:hover {
+    background-color: #495057;
+    border-radius: 5px;
+}
+
+.active-link {
+    color: #007bff;
+}
+
+.disabled-link {
+    color: gray;
+    pointer-events: none;
 }

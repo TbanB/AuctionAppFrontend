@@ -35,6 +35,10 @@
     justify-content: flex-end;
 }
 
+#userForm {
+    height: min-content;
+}
+
 .form-group {
     margin-bottom: 15px;
 }

@@ -1,0 +1,35 @@
+<div class="view-container">
+    <div class="auction-details">
+        <div class="details-and-chat">
+            <div class="auction-detail-info">
+                <h1>Detalles de la Subasta</h1>
+                <form id="auctionForm">
+                    <div class="auction-product-title-container">
+                        <h3 class="product-name"></h3>
+                        <span class="status-label">En curso</span>
+                    </div>
+                    <p><span class="label">Año:</span> <span class="value product-year"></span></p>
+                    <p><span class="label">Valor inicial:</span> <span class="currency initial-value"></span></p>
+                    <p><span class="label">Valor objetivo:</span> <span class="currency goal-value"></span></p>
+                    <p><span class="label">Vendido por:</span> <span class="currency final-value"></span></p>
+                    <p><span class="label">Comienza el:</span> <span class="date start-time"></span></p>
+                    <p><span class="label">Termina el:</span> <span class="date end-time"></span></p>
+                    <input type="number" id="bidAmount" placeholder="Cantidad a pujar" min="1">
+                    <button type="button" id="bidButton" class="bid-btn">Pujar</button>
+                    <button type="button" id="userProfileLink" class="profile-link">Ver perfil del usuario</button>
+                </form>
+            </div>
+            <div class="chat-section">
+                <h2>Chat de Subasta</h2>
+                <div class="chat-container">
+                    <div class="chat-messages" id="chatMessages"></div>
+                    <input type="text" id="chatInput" placeholder="Escribe un mensaje...">
+                    <button type="button" id="sendChatButton">Enviar</button>
+                </div>
+            </div>
+        </div>
+        <div class="photo-container">
+            <img id="auction-product-image" src="https://via.placeholder.com/150" alt="Foto del Producto">
+        </div>
+    </div>
+</div>
